@@ -24,8 +24,8 @@ $(document).ready(function(){
     var old = [];// stores old values to check if x,y,z need updating
     var des = 0; //0 = marginal x, 1 = marginal y, 2 = x|y at ymin, 3 = x|y at ymax, 4 = y|x at xmin, 5 = y|x at xmax, 6 = cdf x, 7 = cdf y
     var numPoints = 250;// number of points per distribution, max = 500
-    var sigmaStep = 5;// bounds how many sigmas away are the distributions calculated
-    var sigmaDisp = 3// bounds how many sigmas away are displayed
+    var sigmaStep = 4;// bounds how many sigmas away are the distributions calculated
+    var sigmaDisp = 4// bounds how many sigmas away are displayed
     var out = 0;// value to be displayed in the P box
     var des3d = 0;// 0 = bivariate PDF, 1 = bivariate CDF
     var starting = 0;// used for initial settings to be displayed
@@ -136,6 +136,16 @@ $(document).ready(function(){
             }
             zCut.push(temp);
         }
+        updateOutput('P(' + xmin + ' < X < ' + xmax + ' ∩ ' + ymin + ' < Y < ' + ymax + ') = ' + (sumMat(zCut)/sumMat(z)).toFixed(3));
+    }
+    var sumMat = function(mat){
+        var temp = 0;
+        for (var i = 0; i < numPoints; i++){
+            for (var j = 0; j < numPoints; j++){
+                temp += mat[i][j];
+            }
+        }
+        return temp;
     }
     var CDF = function(mu, sigma, val){// Calculates value of p(x <= val) for given mu and sigma in a distribution
         var temp1 = (val-mu)/sigma;
@@ -534,5 +544,4 @@ $(document).ready(function(){
         starting++;
     }
     initial();//running on load
-    
 })
