@@ -175,11 +175,6 @@
             <li><b>Requirements</b> - modern web-browser with HTML and JavaScript support</li>
             <li>See the <a href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_BivariateNormal_JS_Activity">SOCR Bivariate Normal Distribution Activity</a></li>
             <li>Click the <b>Graph Settings</b> button to open an overlay window for controlling the distribution parameters.</li>
-            <li>Use the <b>Distribution type</b> section to select what distributions you would like to be displayed</li>
-            <li>Use the <b>Variable Settings</b> section to input the distribution parameters and correlation coefficient</li>
-            <li>Use the <b>Control</b> section to input appropriate bivariate limits for X and Y variables</li>
-            <li>Use the <b>Graph Settings</b> sections to indicate what type of 2D and 3D graph to view. You can select to view either the Marginal functions of each variable, the Conditional distributions at the limits of variables, or the CDF functions for the 2D graph, while the PDF and the CDF are available for the 3D graph.</li>
-            <li>Once done, click the <b>X</b> button to close the Graph Settings Section. The graph may take a few seconds to update.</li>
             <li>You can control the bivariate normal distribution in 3D by clicking and dragging on the graph, zooling in and out, as well as taking a picture</li>
             <li>Probability Results are reported in the <b>Probability</b> section</li>
             <li>This graphical bivariate Normal probability calculator shows visually the correspondence between the graphical area representation and the numeric (PDF/CDF) results. However, the reported probabilities are approximate (accuracy 10<sup>-3</sup> for Results section and the 2D graph, 10<sup>-2</sup> for 3D bivariate plot) due to the finite viewing window of the infinitely supported Normal distribution, and the limited numerical precision of the inputs (domain) and outputs (range). Users that require high-precision calculations are encouraged to use the <a href="https://socr.umich.edu/Applets/index.html#High-Precision_Distribution_Calculators">SOCR high-precision numerical probability calculators</a></li>
@@ -188,6 +183,14 @@
     <div id = "backdim"></div>
     <main><div id="mainContainer">
         <button id = "close">&times;</button>
+        <h2>Instructions</h2>
+        <ul>
+            <li>Use the <b>Distribution type</b> section to select what distributions you would like to be displayed</li>
+            <li>Use the <b>Variable Settings</b> section to input the distribution parameters and correlation coefficient</li>
+            <li>Use the <b>Control</b> section to input appropriate bivariate limits for X and Y variables</li>
+            <li>Use the <b>Graph Settings</b> sections to indicate what type of 2D and 3D graph to view. You can select to view either the Marginal functions of each variable, the Conditional distributions at the limits of variables, or the CDF functions for the 2D graph, while the PDF and the CDF are available for the 3D graph.</li>
+            <li>Once done, click the <b>X</b> button to close the Graph Settings Section. The graph may take a few seconds to update.</li>
+        </ul>
         <table>
             <tr><td colspan = "2"><h2>Distribution type</h2></td></tr>
             <tr>
@@ -214,17 +217,16 @@
                 <td></td>
             </tr>
             <tr>
-                <td id = "x1">&mu;<sub>X</sub> = <textarea id = "mux" onfocus="this.select()" rows="1" maxlength="4">0</textarea></td>
-                <td id = "y1">&mu;<sub>Y</sub> = <textarea id = "muy" onfocus="this.select()" rows="1" maxlength="4">0</textarea></td>
+                <td id = "x1">&mu;<sub>X</sub> = <textarea id = "px1" onfocus="this.select()" rows="1" maxlength="4">0</textarea></td>
+                <td id = "y1">&mu;<sub>Y</sub> = <textarea id = "py1" onfocus="this.select()" rows="1" maxlength="4">0</textarea></td>
             </tr>
             <tr>
-                <td id = "x2">&sigma;<sub>X</sub> = <textarea id = "six" onfocus="this.select()" rows="1" maxlength="4">1</textarea></td>
-                <td id = "y2">&sigma;<sub>Y</sub> = <textarea id = "siy" onfocus="this.select()" rows="1" maxlength="4">1</textarea></td>
+                <td id = "x2">&sigma;<sub>X</sub> = <textarea id = "px2" onfocus="this.select()" rows="1" maxlength="4">1</textarea></td>
+                <td id = "y2">&sigma;<sub>Y</sub> = <textarea id = "py2" onfocus="this.select()" rows="1" maxlength="4">1</textarea></td>
             </tr>
         </table>
         <table>
             <tr><td><h2>Controls</h2></td></tr>
-            <tr><td id = "spacer">Easter Egg</td></tr>
             <tr><td><textarea id = "xmin" onfocus="this.select()" rows="1" maxlength="4">-4</textarea> &lt; X &lt; <textarea id = "xmax" onfocus="this.select()" rows="1" maxlength="4">4</textarea></td></tr>
             <tr><td><textarea id = "ymin" onfocus="this.select()" rows="1" maxlength="4">-4</textarea> &lt; Y &lt; <textarea id = "ymax" onfocus="this.select()" rows="1" maxlength="4">4</textarea></td></tr>
         </table>

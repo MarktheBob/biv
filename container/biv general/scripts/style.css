@@ -60,10 +60,20 @@ main{
     z-index: 4;
     position: fixed;
     max-width: 75vw;
-    top: 15vh;
+    top: 5vh;
     left: 15vw;
     border: 2px solid black;
     border-radius: 10px;
+    max-height: 35vw;
+    overflow: auto;
+}
+
+#mainContainer{
+    display: flex;
+    flex-flow: column;
+    z-index: 5;
+    margin-left: 0.5em;
+    margin-bottom: 0px;
 }
 
 #backdim{
@@ -76,14 +86,6 @@ main{
     opacity: 50%;
     z-index: 2;
     display: none;
-}
-
-#mainContainer{
-    display: flex;
-    flex-flow: column;
-    z-index: 5;
-    margin-left: 0.5em;
-    margin-bottom: 0px;
 }
 
 #close{
@@ -99,7 +101,6 @@ main{
 
 main table, main div{
     min-width: 90%;
-    margin-bottom: 2em;
 }
 
 ul{
@@ -127,9 +128,11 @@ h2{
     main{
         min-width: 50vw;
         max-width: 50vw;
-        min-height: 50vh;
+        min-height: 35vh;
         top: 15vh;
         left: 25vw;
+        max-height: 35vw;
+        overflow: auto;
     }
 }
 

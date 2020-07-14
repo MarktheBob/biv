@@ -64,6 +64,8 @@ main{
     left: 15vw;
     border: 2px solid black;
     border-radius: 10px;
+    max-height: 35vw;
+    overflow: auto;
 }
 
 #backdim{
@@ -130,6 +132,8 @@ h2{
         min-height: 50vh;
         top: 15vh;
         left: 25vw;
+        max-height: 35vw;
+        overflow: auto;
     }
 }
 

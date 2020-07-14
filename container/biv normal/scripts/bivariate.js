@@ -31,6 +31,7 @@ $(document).ready(function(){
     var starting = 0;// used for initial settings to be displayed
     var output = [];// String array to store history of outputs
     var $graph = $('#graph');// Canvas for 2d graph
+    var settingsOpen = false;// Logs if the settings menu is open
                                                             //Functions
     var check = function(){// Checks if inputs are correct, if they are wrong it resets them to previously recorded values
         if(rho >= 1 || rho < 0 || isNaN(rho)){
@@ -444,8 +445,7 @@ $(document).ready(function(){
             })
         }
     }
-                                                            //Buttons
-    $('#close').click(function(){//Does all the work updating everything
+    var doAll = function(){// Does everything
         old = [mux, muy, sigmax, sigmay, rho, xmin, xmax, ymin, ymax];
         mux = Number($('#mux').val());
         muy = Number($('#muy').val());
@@ -474,10 +474,24 @@ $(document).ready(function(){
         updatePlot();//Updates 3D Graph
         $('main').hide(1000);
         $('#backdim').hide(1000);
+        settingsOpen = false
+    }
+                                                            //Buttons
+    $('#close').click(function(){//X button
+        doAll();
     })
+    $('#backdim').click(function(){//Clicking outside the settings box
+        doAll();
+    })
+    $(document).keyup(function(e){// Pressing Esc key
+        if(e.which == 27 && settingsOpen) {
+            doAll();
+        }
+    });
     $('#show').click(function(){//Shows the settings menu
         $('#backdim').show(1000);
         $('main').show(1000);
+        settingsOpen = true;
     })
                                                             //3D model
     var updatePlot = function(){// Uses Plotly to generate a 3d plot
