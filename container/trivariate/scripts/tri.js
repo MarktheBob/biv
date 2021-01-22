@@ -3925,7 +3925,7 @@ $(document).ready(function(){
                 }
                 data.push(temptrace);
             }
-            cutprob = 5*trimax/255;
+            cutprob = 5*triShellMax/255;
             $('#cdf').hide();
             $('#pdf').show();
         }
