@@ -1435,7 +1435,7 @@ $(document).ready(function(){
             }
             ret.push(temp);
         }
-        //Calculating the bivariate consitional probability that is within the limits
+        //Calculating the bivariate conditional probability that is within the limits
         var temp1 = (sumMat(ret, max1, max2)/sumMat(b, max1, max2));
         if(isNaN(temp1)){temp1 = 0;}
         outtemp.push('P(' + amin + ' < ' + t1 + ' < ' + amax + ' ∩ ' + bmin + ' < ' + t2 + ' < ' + bmax + ') = ' + temp1.toFixed(3));
@@ -1501,7 +1501,7 @@ $(document).ready(function(){
                     if(topush > trimax){trimax = topush;}//updating maximum probability value in tensor
                     if(x[i] < xmin || x[i] > xmax || y[j] < ymin || y[j] > ymax || z[k] < zmin || z[k] > zmax){temp4.push(0);}//if the xyz point is in bounds then add probability to cut array
                     else{temp4.push(topush);}//if the xyz point is not in bounds then add 0 to cut array
-                    if(i%5 == 0 && j%5 == 0 && k%5 == 0){temp6.push(topush);if(topush > triShellMax){triShellMax = topush;}}
+                    if((i%5 == 0 && j%5 == 0 && k%5 == 0) && (x[i] < xmin || x[i] > xmax || y[j] < ymin || y[j] > ymax || z[k] < zmin || z[k] > zmax)){temp6.push(topush);if(topush > triShellMax){triShellMax = topush;}}
                 }
                 //appending arrays to matrixes
                 temp1.push(temp2);
